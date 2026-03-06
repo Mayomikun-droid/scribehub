@@ -137,7 +137,7 @@ export default function DashboardPage() {
     <div style={{ display: 'flex', minHeight: '100vh', background: 'var(--bg-base)', fontFamily: 'var(--font-base)' }}>
       <AppSidebar />
 
-      <div ref={pageRef} className="main-content" style={{ flex: 1, marginLeft: '220px', padding: '32px 40px', overflowY: 'auto' }}>
+      <div ref={pageRef} className="app-main" style={{ flex: 1, overflowY: 'auto' }}>
 
         {/* Top bar */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px' }}>
@@ -158,7 +158,7 @@ export default function DashboardPage() {
         </div>
 
         {/* ── ROW 1: Wallet + Streak ── */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px', marginBottom: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', marginBottom: '20px' }}>
 
           {/* Wallet balance */}
           <Panel className="dash-panel" style={{
@@ -211,7 +211,7 @@ export default function DashboardPage() {
         </div>
 
         {/* ── ROW 2: Courses + Games ── */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px', marginBottom: '20px' }}>
 
           {/* Courses */}
           <Panel className="dash-panel">
@@ -239,7 +239,7 @@ export default function DashboardPage() {
           {/* Game Stats */}
           <Panel className="dash-panel">
             <SectionHeader title="Game Performance" action="Play now" onAction={() => router.push('/games')} />
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '10px', marginBottom: '16px' }}>
               {GAME_STATS.map(({ label, value }) => (
                 <div key={label} style={{ padding: '14px', borderRadius: '10px', background: 'var(--bg-elevated)', textAlign: 'center' }}>
                   <p style={{ fontSize: '20px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '3px' }}>{value}</p>
@@ -264,7 +264,7 @@ export default function DashboardPage() {
         </div>
 
         {/* ── ROW 3: Leaderboard + Jobs + Transactions ── */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px', marginBottom: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', marginBottom: '20px' }}>
 
           {/* Leaderboard */}
           <Panel className="dash-panel">
@@ -371,7 +371,7 @@ export default function DashboardPage() {
 
       <style>{`
         @media (max-width: 768px) {
-          .main-content { margin-left: 0 !important; padding: 20px 16px 100px !important; }
+          .app-main { margin-left: 0 !important; padding: 72px 16px 90px !important; }
         }
       `}</style>
     </div>

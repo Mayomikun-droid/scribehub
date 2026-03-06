@@ -119,8 +119,8 @@ export default function SettingsPage() {
       <AppSidebar />
 
       {/* Main */}
-      <div style={{ flex: 1, marginLeft: '220px', padding: '40px 48px', maxWidth: '900px' }}
-        className="main-content">
+      <div style={{ flex: 1, padding: '40px 48px', maxWidth: '900px' }}
+        className="app-main">
 
         {/* Header */}
         <div style={{ marginBottom: '40px' }}>
@@ -132,9 +132,9 @@ export default function SettingsPage() {
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', alignItems: 'flex-start' }}>
           {/* Sidebar tabs */}
-          <div style={{ width: '180px', flexShrink: 0, position: 'sticky', top: '40px' }}>
+          <div style={{ width: '100%', maxWidth: '180px', position: 'sticky', top: '40px' }}>
             {TABS.map(({ id, icon: Icon, label }) => {
               const active = activeTab === id;
               const isDanger = id === 'danger';
@@ -362,7 +362,7 @@ export default function SettingsPage() {
             )}
 
             {/* ── DANGER ZONE ── */}
-            {activeTab === 'delete' && (
+            {activeTab === 'danger' && (
               <div>
                 <div style={{
                   padding: '20px', borderRadius: '16px', marginBottom: '20px',
@@ -371,7 +371,7 @@ export default function SettingsPage() {
                 }}>
                   <AlertTriangle style={{ width: '20px', height: '20px', color: '#EF4444', flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <p style={{ fontSize: '14px', fontWeight: 600, color: '#EF4444', marginBottom: '4px' }}>DELETE MY ACCOUNT</p>
+                    <p style={{ fontSize: '14px', fontWeight: 600, color: '#EF4444', marginBottom: '4px' }}>Danger Zone</p>
                     <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>
                       Actions here are irreversible. Please proceed with extreme caution.
                     </p>
@@ -429,7 +429,7 @@ export default function SettingsPage() {
       {/* Mobile padding for bottom nav */}
       <style>{`
         @media (max-width: 768px) {
-          .main-content { margin-left: 0 !important; padding: 24px 16px 100px !important; }
+          .app-main { margin-left: 0 !important; padding: 24px 16px 100px !important; }
         }
       `}</style>
     </div>

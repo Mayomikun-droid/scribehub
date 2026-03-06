@@ -123,7 +123,7 @@ function StatPills() {
   ];
 
   return (
-    <div ref={ref} style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px', marginBottom: '24px' }}>
+    <div ref={ref} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '14px', marginBottom: '24px' }}>
       {stats.map(({ icon: Icon, label, value, sub, color }) => (
         <div key={label} style={{
           background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)',
@@ -197,7 +197,7 @@ export default function HomePage() {
       <AppSidebar />
 
       {/* Main */}
-      <div ref={pageRef} className="main-content" style={{ flex: 1, marginLeft: '220px', padding: '32px 40px', overflowY: 'auto' }}>
+      <div ref={pageRef} className="app-main" style={{ flex: 1, overflowY: 'auto' }}>
 
         {/* Top bar */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px' }}>
@@ -251,7 +251,7 @@ export default function HomePage() {
         <DailyChallenge />
 
         {/* Two-column section */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: '20px', marginBottom: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '24px' }}>
 
           {/* Quick Links */}
           <div style={{
@@ -335,12 +335,8 @@ export default function HomePage() {
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          .main-content { margin-left: 0 !important; padding: 20px 16px 100px !important; }
-        }
-        @media (max-width: 1024px) {
-          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          .two-col { grid-template-columns: 1fr !important; }
+        @media (max-width: 767px) {
+          .app-main { margin-left: 0 !important; padding: 72px 16px 90px !important; }
         }
       `}</style>
     </div>
