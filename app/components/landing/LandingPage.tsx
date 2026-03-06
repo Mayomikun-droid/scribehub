@@ -451,7 +451,7 @@ function WorkVisual() {
 function AriaFeatureSection() {
   return (
     <section className="relative overflow-hidden"
-      style={{ background: 'var(--bg-base)', padding: '120px 80px' }}
+      style={{ background: 'var(--bg-base)', padding: 'clamp(60px, 10vw, 120px) clamp(16px, 5vw, 80px)' }}
     >
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(circle at 50% 40%, rgba(123,47,255,0.15) 0%, transparent 60%)' }}
@@ -460,8 +460,7 @@ function AriaFeatureSection() {
         <div className="reveal flex justify-center" style={{ marginBottom: '48px' }}>
           <div className="rounded-full relative"
             style={{
-              width: '180px',
-              height: '180px',
+              width: '160px', height: '160px',
               background: 'radial-gradient(circle at 35% 35%, #C084FC, #7B2FFF 50%, #5B1FCC)',
               boxShadow: '0 0 160px rgba(123,47,255,0.5), 0 0 60px rgba(123,47,255,0.3)',
             }}
@@ -472,32 +471,32 @@ function AriaFeatureSection() {
           </div>
         </div>
 
-        <h2 className="reveal font-extrabold text-text-primary" style={{ fontSize: 'var(--text-h1)', marginBottom: '16px' }}>
+        <h2 className="reveal font-extrabold text-text-primary" style={{ fontSize: 'clamp(24px, 5vw, 48px)', marginBottom: '16px' }}>
           Meet ARIA. Your AI co-pilot, built for you.
         </h2>
-        <p className="reveal text-text-secondary" style={{ fontSize: 'var(--text-body-lg)', margin: '16px auto 64px', maxWidth: '600px' }}>
+        <p className="reveal text-text-secondary" style={{ fontSize: 'var(--text-body-lg)', margin: '16px auto 48px', maxWidth: '600px' }}>
           Customise her. Name her. Make her yours.
         </p>
 
-        <div className="grid md:grid-cols-3 reveal" style={{ gap: '24px', marginBottom: '48px' }}>
+        <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginBottom: '48px' }}>
           {[
             { icon: Eye, title: 'Knows your goals', desc: 'Understands what you want to achieve and builds a path to get there.' },
             { icon: Target, title: 'Tracks your progress', desc: 'Monitors every lesson, game, and job — so you never lose momentum.' },
             { icon: Zap, title: 'Surfaces opportunities', desc: 'Finds the best earning chances before you even know to look.' },
           ].map((f, i) => (
-            <div key={i} className="card text-center" style={{ background: 'var(--bg-elevated)', padding: '40px 24px' }}>
+            <div key={i} className="card text-center" style={{ background: 'var(--bg-elevated)', padding: 'clamp(20px, 3vw, 40px) clamp(12px, 2vw, 24px)' }}>
               <div className="rounded-lg-token mx-auto flex items-center justify-center"
-                style={{ width: '56px', height: '56px', background: 'rgba(123,47,255,0.15)', marginBottom: '20px' }}
+                style={{ width: '48px', height: '48px', background: 'rgba(123,47,255,0.15)', marginBottom: '16px', borderRadius: '12px' }}
               >
-                <f.icon className="w-6 h-6 text-brand-light" />
+                <f.icon className="w-5 h-5 text-brand-light" />
               </div>
-              <h3 className="text-text-primary font-bold text-lg" style={{ marginBottom: '12px' }}>{f.title}</h3>
-              <p className="text-text-secondary text-sm">{f.desc}</p>
+              <h3 className="text-text-primary font-bold" style={{ fontSize: 'clamp(13px, 2vw, 18px)', marginBottom: '8px' }}>{f.title}</h3>
+              <p className="text-text-secondary" style={{ fontSize: 'clamp(11px, 1.5vw, 14px)' }}>{f.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="reveal" style={{ marginTop: '48px' }}>
+        <div className="reveal" style={{ marginTop: '40px' }}>
           <Button variant="earn" className="text-lg" style={{ padding: '16px 48px' }}>
             Unlock ARIA
           </Button>
@@ -512,10 +511,10 @@ function PricingSection() {
   const router = useRouter();
 
   return (
-    <section style={{ background: 'var(--bg-surface)', padding: '120px 80px' }}>
+    <section style={{ background: 'var(--bg-surface)', padding: 'clamp(60px, 10vw, 120px) clamp(16px, 5vw, 80px)' }}>
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-        <div className="text-center reveal" style={{ marginBottom: '64px' }}>
-          <h2 className="font-extrabold text-text-primary" style={{ fontSize: 'var(--text-h1)', marginBottom: '16px' }}>
+        <div className="text-center reveal" style={{ marginBottom: '48px' }}>
+          <h2 className="font-extrabold text-text-primary" style={{ fontSize: 'clamp(24px, 5vw, 48px)', marginBottom: '16px' }}>
             Get Early Access
           </h2>
           <p className="text-text-secondary" style={{ fontSize: 'var(--text-body-lg)' }}>
@@ -523,28 +522,28 @@ function PricingSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 reveal" style={{ gap: '24px' }}>
+        <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
           {/* Waitlist Card */}
-          <div className="card" style={{ border: '1px solid var(--brand-violet)', padding: '32px', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: '16px', right: '16px' }}>
-              <Tag variant="lime">LIMITED ACCESS</Tag>
+          <div className="card" style={{ border: '1px solid var(--brand-violet)', padding: 'clamp(20px, 3vw, 32px)', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', top: '12px', right: '12px' }}>
+              <Tag variant="lime">LIMITED</Tag>
             </div>
-            <div style={{ paddingTop: '24px', paddingBottom: '24px' }}>
+            <div style={{ paddingTop: '20px', paddingBottom: '20px' }}>
               <p className="text-text-secondary text-sm" style={{ marginBottom: '8px' }}>Founding Member</p>
-              <p className="text-text-primary font-extrabold tabular-nums" style={{ fontSize: '40px', marginBottom: '4px' }}>
-                ₦2,500<span style={{ fontSize: '18px', fontWeight: 'normal', color: 'var(--text-secondary)' }}>/mo</span>
+              <p className="text-text-primary font-extrabold tabular-nums" style={{ fontSize: 'clamp(28px, 5vw, 40px)', marginBottom: '4px' }}>
+                ₦2,500<span style={{ fontSize: '16px', fontWeight: 'normal', color: 'var(--text-secondary)' }}>/mo</span>
               </p>
               <p className="text-text-secondary text-sm">Billed monthly</p>
             </div>
-            <ul style={{ marginBottom: '32px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <ul style={{ marginBottom: '24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {[
                 'All 15 courses + earn per segment',
                 'All 10 skill-based games',
                 'Full job marketplace access',
-                'ARIA — fully unlocked, always-on',
+                'ARIA — fully unlocked',
                 'Priority support & founding badge',
               ].map((f, i) => (
-                <li key={i} className="text-text-primary text-sm" style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                <li key={i} className="text-text-primary" style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: 'clamp(11px, 1.8vw, 14px)' }}>
                   <Star className="w-4 h-4 text-accent-lime" style={{ flexShrink: 0, marginTop: '2px' }} />
                   {f}
                 </li>
@@ -555,92 +554,118 @@ function PricingSection() {
             </Button>
           </div>
 
-          {/* Standard Card */}
-          <div className="card" style={{ padding: '32px' }}>
-            <div style={{ paddingTop: '24px', paddingBottom: '24px' }}>
-              <p className="text-text-secondary text-sm" style={{ marginBottom: '8px' }}>Standard</p>
-              <p className="text-text-primary font-extrabold" style={{ fontSize: '40px', marginBottom: '4px' }}>Coming Soon</p>
-              <p className="text-text-secondary text-sm">Regular pricing after launch</p>
+          {/* Free Card */}
+          <div className="card" style={{ padding: 'clamp(20px, 3vw, 32px)' }}>
+            <div style={{ paddingTop: '20px', paddingBottom: '20px' }}>
+              <p className="text-text-secondary text-sm" style={{ marginBottom: '8px' }}>Free Account</p>
+              <p className="text-text-primary font-extrabold tabular-nums" style={{ fontSize: 'clamp(28px, 5vw, 40px)', marginBottom: '4px' }}>
+                Free<span style={{ fontSize: '16px', fontWeight: 'normal', color: 'var(--text-secondary)' }}> forever</span>
+              </p>
+              <p className="text-text-secondary text-sm">No credit card needed</p>
             </div>
-            <ul style={{ marginBottom: '32px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <ul style={{ marginBottom: '24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {[
-                'Selected course library',
+                '3 starter courses',
                 'Limited game access',
                 'Basic job matching',
                 'ARIA — limited interactions',
-                'Community support',
+                'Upgrade anytime',
               ].map((f, i) => (
-                <li key={i} className="text-text-secondary text-sm" style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                  <Shield className="w-4 h-4 text-text-disabled" style={{ flexShrink: 0, marginTop: '2px' }} />
+                <li key={i} className="text-text-secondary" style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: 'clamp(11px, 1.8vw, 14px)' }}>
+                  <ChevronRight className="w-4 h-4" style={{ flexShrink: 0, marginTop: '2px' }} />
                   {f}
                 </li>
               ))}
             </ul>
-            <Button variant="secondary" className="w-full">Notify Me</Button>
+            <Button variant="secondary" className="w-full" onClick={() => router.push('/sign-up')}>
+              Join Free
+            </Button>
           </div>
         </div>
 
-        <p className="text-center text-text-secondary text-sm reveal" style={{ marginTop: '32px' }}>
+        <p className="text-center text-text-secondary text-sm reveal" style={{ marginTop: '24px' }}>
           <span className="text-accent-lime font-bold">47 spots remaining</span> — Founding Member pricing won't last forever.
         </p>
       </div>
     </section>
   );
 }
-
 // -- 5.7 Footer --
 function Footer() {
   return (
-    <footer style={{ background: 'var(--bg-surface)', padding: '80px 80px 40px', borderTop: '1px solid var(--border-subtle)' }}>
+    <footer style={{ background: 'var(--bg-surface)', padding: 'clamp(48px, 8vw, 80px) clamp(16px, 5vw, 80px) clamp(24px, 4vw, 40px)', borderTop: '1px solid var(--border-subtle)' }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-        <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: '48px', marginBottom: '64px' }}>
-          <div className="col-span-2 md:col-span-1">
-            <span className="text-xl font-bold text-brand-violet font-jakarta" style={{ display: 'block', marginBottom: '12px' }}>
+
+        {/* Top grid — stacks to 2-col on mobile, 4-col on desktop */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 'clamp(32px, 5vw, 48px)', marginBottom: 'clamp(40px, 6vw, 64px)' }}>
+
+          {/* Brand */}
+          <div style={{ gridColumn: 'span 2' }}>
+            <span style={{ display: 'block', marginBottom: '12px', fontSize: '20px', fontWeight: 700, color: 'var(--brand-violet)' }}>
               Scribe Hub
             </span>
-            <p className="text-text-secondary text-sm" style={{ maxWidth: '200px' }}>
+            <p className="text-text-secondary text-sm" style={{ maxWidth: '220px', lineHeight: 1.6 }}>
               Africa's first AI-native platform for learning, earning, and competing.
             </p>
-          </div>
-          <div>
-            <h4 className="text-text-primary font-semibold text-sm uppercase tracking-wider" style={{ marginBottom: '20px' }}>Product</h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {['Courses', 'Games', 'Jobs', 'ARIA', 'Pricing'].map(l => (
-                <li key={l}><a href="#" className="text-text-secondary text-sm hover:text-text-primary transition-colors">{l}</a></li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-text-primary font-semibold text-sm uppercase tracking-wider" style={{ marginBottom: '20px' }}>Company</h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {['About', 'Blog', 'Careers', 'Press', 'Contact'].map(l => (
-                <li key={l}><a href="#" className="text-text-secondary text-sm hover:text-text-primary transition-colors">{l}</a></li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-text-primary font-semibold text-sm uppercase tracking-wider" style={{ marginBottom: '20px' }}>Connect</h4>
-            <div style={{ display: 'flex', gap: '12px' }}>
+            {/* Social icons */}
+            <div style={{ display: 'flex', gap: '12px', marginTop: '20px' }}>
               {[Twitter, Instagram, Linkedin, Mail].map((Icon, i) => (
-                <a key={i} href="#" className="text-text-secondary hover:text-text-primary transition-all"
-                  style={{ width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                <a key={i} href="#" style={{
+                  width: '38px', height: '38px', borderRadius: '50%',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  background: 'var(--bg-elevated)', color: 'var(--text-secondary)',
+                  transition: 'all 0.2s',
+                }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-primary)'; (e.currentTarget as HTMLElement).style.background = 'rgba(123,47,255,0.15)'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-secondary)'; (e.currentTarget as HTMLElement).style.background = 'var(--bg-elevated)'; }}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-4 h-4" />
                 </a>
               ))}
             </div>
           </div>
+
+          {/* Product */}
+          <div>
+            <h4 style={{ color: 'var(--text-primary)', fontWeight: 600, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '20px' }}>Product</h4>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              {['Courses', 'Games', 'Jobs', 'ARIA', 'Pricing'].map(l => (
+                <li key={l}><a href="#" className="text-text-secondary text-sm hover:text-text-primary transition-colors" style={{ lineHeight: 1 }}>{l}</a></li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 style={{ color: 'var(--text-primary)', fontWeight: 600, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '20px' }}>Company</h4>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              {['About', 'Blog', 'Careers', 'Press', 'Contact'].map(l => (
+                <li key={l}><a href="#" className="text-text-secondary text-sm hover:text-text-primary transition-colors" style={{ lineHeight: 1 }}>{l}</a></li>
+              ))}
+            </ul>
+          </div>
+
         </div>
 
-        <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
-          <p className="text-text-secondary" style={{ fontSize: 'var(--text-label)' }}>
+        {/* Bottom bar */}
+        <div style={{
+          borderTop: '1px solid var(--border-subtle)',
+          paddingTop: '24px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px',
+          alignItems: 'center',
+          textAlign: 'center',
+        }}>
+          <p className="text-text-secondary" style={{ fontSize: '12px' }}>
             © 2026 Scribe Hub. All rights reserved.
           </p>
-          <div style={{ display: 'flex', gap: '24px' }}>
-            <a href="#" className="text-text-secondary hover:text-text-primary transition-colors" style={{ fontSize: 'var(--text-label)' }}>Privacy Policy</a>
-            <a href="#" className="text-text-secondary hover:text-text-primary transition-colors" style={{ fontSize: 'var(--text-label)' }}>Terms of Service</a>
+          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <a href="#" className="text-text-secondary hover:text-text-primary transition-colors" style={{ fontSize: '12px' }}>Privacy Policy</a>
+            <a href="#" className="text-text-secondary hover:text-text-primary transition-colors" style={{ fontSize: '12px' }}>Terms of Service</a>
           </div>
         </div>
+
       </div>
     </footer>
   );
