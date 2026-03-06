@@ -154,14 +154,15 @@ export default function SignInPage() {
           </div>
 
           <button
-            ref={btnRef}
-            className="btn-primary"
-            onMouseMove={onMouseMove}
-            onMouseLeave={onMouseLeave}
-            style={{ width: '100%', marginTop: 24 }}
-          >
-            Sign In
-          </button>
+  ref={btnRef}
+  className="btn-primary"
+  onMouseMove={onMouseMove}
+  onMouseLeave={onMouseLeave}
+  onClick={() => router.push('/home')}
+  style={{ width: '100%', marginTop: 24 }}
+>
+  Sign In
+</button>
 
           <div style={{ textAlign: 'center', marginTop: 16 }}>
             <button
