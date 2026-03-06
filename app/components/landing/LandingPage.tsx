@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useRevealAll } from '../../hooks/useReveal';
 import { Button } from '../../components/ui/Button';
@@ -9,8 +9,8 @@ import { Tag } from '../../components/ui/Tag';
 import { ProgressRing } from '../../components/ui/ProgressRing';
 import { AriaOrb } from '../../components/ui/AriaOrb';
 import {
-  BookOpen, Gamepad2, Briefcase, Sparkles, Eye, Target, Zap,
-  ChevronRight, Shield, Star, Users, Trophy, Wallet,
+  BookOpen, Gamepad2, Briefcase, Eye, Target, Zap,
+  ChevronRight, Shield, Star,
   Mail, Twitter, Instagram, Linkedin, Diamond
 } from 'lucide-react';
 
@@ -168,26 +168,26 @@ function LandingNav() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 h-16 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-12 h-16 transition-all duration-300 ${
         scrolled
           ? 'bg-bg-surface border-b border-border-subtle backdrop-blur-md'
           : 'bg-transparent'
       }`}
     >
-      <span className="text-xl font-bold text-brand-violet font-jakarta tracking-tight">
+      <span className="text-lg md:text-xl font-bold text-brand-violet font-jakarta tracking-tight">
         Scribe Hub
       </span>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2">
         <Button
           variant="secondary"
-          className="py-2.5! px-5! text-sm hidden sm:inline-flex"
+          className="py-2! px-3! md:px-5! text-xs md:text-sm"
           onClick={() => router.push('/sign-in')}
         >
           Sign In
         </Button>
         <Button
           variant="primary"
-          className="py-2.5! px-5! text-sm"
+          className="py-2! px-3! md:px-5! text-xs md:text-sm"
           onClick={() => router.push('/waitlist')}
         >
           Join Waitlist
@@ -212,9 +212,9 @@ function HeroSection() {
       style={{ background: 'var(--bg-base)' }}
     >
       <HeroParticles />
-      <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-16 px-6 max-w-7xl mx-auto w-full pt-20">
+      <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-16 px-4 md:px-6 max-w-7xl mx-auto w-full pt-20 pb-12">
         <div className="flex-1 text-center lg:text-left">
-          <h1 className="font-extrabold leading-none tracking-tight" style={{ fontSize: 'var(--text-display)' }}>
+          <h1 className="font-extrabold leading-none tracking-tight" style={{ fontSize: 'clamp(40px, 10vw, 96px)' }}>
             <span className="block text-text-primary opacity-0 animate-[fadeSlideUp_0.8s_ease-out_forwards]">LEARN.</span>
             <span className="block text-text-primary opacity-0 animate-[fadeSlideUp_0.8s_ease-out_0.12s_forwards]">COMPETE.</span>
             <span className="block text-accent-lime opacity-0 animate-[fadeSlideUp_0.8s_ease-out_0.24s_forwards]">EARN.</span>
@@ -228,12 +228,12 @@ function HeroSection() {
             Africa's AI-native platform where knowledge becomes income. Learn real skills, compete in merit-based games, and get paid.
           </p>
           <div
-            className={`flex gap-4 mt-8 justify-center lg:justify-start transition-all duration-700 delay-200 ${
+            className={`flex flex-wrap gap-3 mt-8 justify-center lg:justify-start transition-all duration-700 delay-200 ${
               showSub ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
             <Button variant="primary" onClick={() => router.push('/sign-up')}>Join Free</Button>
-            <Button variant="secondary">Watch Demo</Button>
+            <Button variant="secondary" onClick={() => router.push('/waitlist')}>Join Waitlist</Button>
           </div>
         </div>
 
@@ -688,6 +688,23 @@ export default function LandingPage() {
       <div className="fixed bottom-6 right-6 z-50">
         <AriaOrb />
       </div>
+
+      <style>{`
+        @media (max-width: 767px) {
+          /* Prevent overflow */
+          section { overflow-x: hidden !important; }
+          /* Engine sections stack vertically */
+          .engine-section-inner { flex-direction: column !important; }
+          .engine-section-visual { width: 100% !important; min-width: 0 !important; }
+          /* Pricing cards stack */
+          .pricing-grid { grid-template-columns: 1fr !important; }
+          /* Feature grids */
+          .feature-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 480px) {
+          .feature-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </div>
   );
 }

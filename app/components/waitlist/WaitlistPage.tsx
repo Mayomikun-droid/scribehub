@@ -214,7 +214,7 @@ export default function WaitlistPage() {
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 48px', height: '64px',
+        padding: '0 20px', height: '64px',
         background: 'rgba(10,10,15,0.8)', backdropFilter: 'blur(12px)',
         borderBottom: '1px solid var(--border-subtle)',
       }}>
@@ -233,11 +233,11 @@ export default function WaitlistPage() {
       </nav>
 
       {/* Main content */}
-      <div style={{ paddingTop: '100px', paddingBottom: '80px', paddingLeft: '64px', paddingRight: '64px', maxWidth: '1400px', margin: '0 auto' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '80px', alignItems: 'flex-start' }}>
+      <div style={{ paddingTop: '80px', paddingBottom: '60px', paddingLeft: 'clamp(16px, 4vw, 64px)', paddingRight: 'clamp(16px, 4vw, 64px)', maxWidth: '1400px', margin: '0 auto' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: 'clamp(32px, 5vw, 80px)', alignItems: 'flex-start' }}>
 
           {/* ========== LEFT COLUMN ========== */}
-          <div style={{ flex: 1, position: 'sticky', top: '100px' }}>
+          <div style={{ flex: '1 1 300px', minWidth: 0, position: 'sticky', top: '80px' }}>
             {/* Watermark */}
             <div style={{
               position: 'absolute', top: 0, left: 0,
@@ -263,7 +263,7 @@ export default function WaitlistPage() {
           </div>
 
           {/* ========== RIGHT COLUMN — Form ========== */}
-          <div style={{ width: '480px', flexShrink: 0 }}>
+          <div style={{ flex: '1 1 340px', minWidth: 0, maxWidth: '480px', width: '100%' }}>
 
             {/* STEP 1 */}
             {step === 1 && (
@@ -456,6 +456,11 @@ export default function WaitlistPage() {
           </div>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 767px) {
+          .editorial-word { font-size: clamp(36px, 10vw, 56px) !important; }
+        }
+      `}</style>
     </div>
   );
 }
