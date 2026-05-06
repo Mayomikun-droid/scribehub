@@ -184,7 +184,11 @@ function DailyChallenge() {
 ══════════════════════════════════════════ */
 export default function HomePage() {
   const router = useRouter();
-  const [quoteIdx] = useState(() => Math.floor(Math.random() * MOTIVATIONAL.length));
+  const [quoteIdx, setQuoteIdx] = useState(0); // safe, deterministic default for SSR
+
+useEffect(() => {
+  setQuoteIdx(Math.floor(Math.random() * MOTIVATIONAL.length));
+}, []); // runs client-side only, after hydration
   const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

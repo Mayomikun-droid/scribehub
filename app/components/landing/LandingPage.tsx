@@ -334,7 +334,7 @@ function EngineSection({
   headline: string;
   copy: string;
   cta: string;
-  icon: React.ElementType;
+  icon: React.ComponentType<{ className?: string }>;
   visual: React.ReactNode;
   reversed?: boolean;
 }) {
@@ -531,7 +531,7 @@ function PricingSection() {
             <div style={{ paddingTop: '20px', paddingBottom: '20px' }}>
               <p className="text-text-secondary text-sm" style={{ marginBottom: '8px' }}>Founding Member</p>
               <p className="text-text-primary font-extrabold tabular-nums" style={{ fontSize: 'clamp(28px, 5vw, 40px)', marginBottom: '4px' }}>
-                ₦2,500<span style={{ fontSize: '16px', fontWeight: 'normal', color: 'var(--text-secondary)' }}>/mo</span>
+                ₦32,000<span style={{ fontSize: '16px', fontWeight: 'normal', color: 'var(--text-secondary)' }}>/mo</span>
               </p>
               <p className="text-text-secondary text-sm">Billed monthly</p>
             </div>
