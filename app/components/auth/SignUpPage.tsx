@@ -303,7 +303,7 @@ export default function SignUpPage() {
                 </button>
               </div>
 
-              <AriaCharacter size="md" interactive={true} />
+              <AriaCharacter interactive={true} />
               <SocialProof />
             </div>
           </div>
